@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jose Antonio Vilar</title>
+<meta name="description" content="Administrador de sistemas en la UPM e investigador en bioinformática e IA. Madrid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: una sola columna estrecha, texto corrido y listas fecha a la derecha, como una página personal sobria */
+:root {
+  --bg: #fbfbfa;
+  --fg: #1c1d1f;
+  --muted: #6d7076;
+  --faint: #e6e7e8;
+  --accent: #1f6f6b;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121314; --fg: #e8e8e6; --muted: #91949a; --faint: #26282a; --accent: #6cc3bc;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121314; --fg: #e8e8e6; --muted: #91949a; --faint: #26282a; --accent: #6cc3bc;
+  color-scheme: dark;
+}
+
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding-block: clamp(3rem, 10vh, 6rem) 3rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+header { display: flex; flex-direction: column; gap: .15rem; }
+h1 { font-size: 15px; font-weight: 500; margin: 0; }
+.updated { color: var(--muted); font-size: 13px; margin: 0; }
+
+.intro { display: flex; flex-direction: column; gap: 1rem; }
+.intro p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--faint);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color .15s, color .15s;
+}
+a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+section { display: flex; flex-direction: column; gap: .75rem; }
+h2 { font-size: 13px; font-weight: 500; color: var(--muted); margin: 0; letter-spacing: .02em; }
+
+ul.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+ul.rows + ul.rows { border-top: 1px solid var(--faint); margin-top: .5rem; padding-top: .5rem; }
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 1rem;
+  padding-block: .35rem;
+}
+.row .t { min-width: 0; }
+.row .d { color: var(--muted); font-size: 13px; line-height: 1.3; margin-top: .1rem; }
+.row time, .row .yr {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding-top: .15rem;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-left: .35rem;
+}
+
+.stack { color: var(--muted); font-size: 14px; margin: 0; }
+.stack span { color: var(--fg); }
+
+footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) { a { transition: none; } }
+</style>
+</head>
+<body>
+
+<main>
+  <header>
+    <h1>Jose Antonio Vilar</h1>
+    <p class="updated">Actualizado el 9 nov 2026</p>
+  </header>
+
+  <div class="intro">
+    <p>Vivo y trabajo en Madrid.</p>
+    <p>Llevo más de 25 años en el área de TI de la <a href="https://www.upm.es" target="_blank" rel="noopener">Universidad Politécnica de Madrid</a>. Hoy formo parte de Puesto-TI y Software, donde diseño y gestiono la configuración de Microsoft Intune, Entra ID, Microsoft 365, Power Platform y Google Workspace, y la gestión de software y licencias de la universidad. Soy administrador global del tenant Microsoft 365.</p>
+    <p>Empecé en soporte y en la puesta en marcha de equipos de usuario final, y pasé después a la administración de sistemas. Ahora mi unidad asume también el gobierno y el despliegue de agentes de IA con Copilot Studio y Gemini.</p>
+    <p>En paralelo fundé QMetrika Labs, donde investigo en la intersección entre bioinformática, inteligencia artificial y biología computacional. Estudio el Grado en Ciencia de Datos Aplicada en la <a href="https://www.uoc.edu" target="_blank" rel="noopener">UOC</a>.</p>
+    <p>Puedes ver mi código en <a href="https://github.com/josevilar-qbioai" target="_blank" rel="noopener">GitHub</a>, mis publicaciones en <a href="https://orcid.org/0009-0008-1057-4223" target="_blank" rel="noopener">ORCID</a>, o escribirme a <span>info@qmetrika.xyz</span>.</p>
+  </div>
+
+  <section aria-labelledby="h-trab">
+    <h2 id="h-trab">Trabajo en la UPM</h2>
+    <ul class="rows">
+      <li class="row">
+        <div class="t">Gobierno de Power Platform y agentes de IA
+          <div class="d">Guía de gobierno: entornos por colectivo, Pipelines, DLP y costes. Circuito de solicitud de agentes.</div></div>
+        <span class="yr">2026</span>
+      </li>
+      <li class="row">
+        <div class="t">Reasignación del almacenamiento de Microsoft 365
+          <div class="d">Cuotas de OneDrive por grupos de seguridad para todo el personal.</div></div>
+        <span class="yr">2026</span>
+      </li>
+      <li class="row">
+        <div class="t">Módulos PowerShell de administración
+          <div class="d">UPMLaps, UPMGuests, UPMLicenses y UPMGroups, desplegados con Intune.</div></div>
+        <span class="yr">2026</span>
+      </li>
+      <li class="row">
+        <div class="t">Análisis y control de licencias
+          <div class="d">Unos 13 servidores FlexLM y Sentinel RMS; datos en Parquet y DuckDB, servidor MCP.</div></div>
+        <span class="yr">2025</span>
+      </li>
+    </ul>
+    <ul class="rows">
+      <li class="row">
+        <div class="t">Puesto-TI y Software
+          <div class="d">Intune, Entra ID, Microsoft 365, Google Workspace, Azure, licencias de software.</div></div>
+        <span class="yr">2021–hoy</span>
+      </li>
+      <li class="row">
+        <div class="t">Soporte e implantación de equipos de usuario
+          <div class="d">Atención a usuarios, puesta en marcha de equipos y administración de sistemas.</div></div>
+        <span class="yr">1999–2021</span>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-inv">
+    <h2 id="h-inv">Investigación · QMetrika Labs</h2>
+    <ul class="rows">
+      <li class="row">
+        <div class="t">Patente EnergoRNA<span class="tag">P202630522</span>
+          <div class="d">Solicitud de patente asociada al método EnergyFingerprint.</div></div>
+        <span class="yr">2026</span>
+      </li>
+      <li class="row">
+        <div class="t">EnergyFingerprint
+          <div class="d">Lectura de la información termodinámica de las secuencias de ARNm y clasificación de variantes sinónimas.</div></div>
+        <span class="yr">2025</span>
+      </li>
+      <li class="row">
+        <div class="t">Capital de Tokens
+          <div class="d">Marco estratégico de especialización en bioinformática e IA.</div></div>
+        <span class="yr">2025</span>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-tec">
+    <h2 id="h-tec">Herramientas</h2>
+    <p class="stack"><span>Microsoft</span> Intune, Entra ID, Microsoft 365, Power Platform, Copilot Studio, Azure · <span>Google</span> Workspace, Cloud, Gemini · <span>Licencias</span> FlexLM, Sentinel RMS, CodeMeter, NetKey, KMS · <span>Sistemas</span> XCP-ng, Windows Server, Debian · <span>Código</span> PowerShell, Python, DuckDB, Ansible</p>
+  </section>
+
+  <footer id="clock">Madrid</footer>
+</main>
+
+<script>
+(function () {
+  var el = document.getElementById('clock');
+  function tick() {
+    try {
+      var t = new Intl.DateTimeFormat('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' }).format(new Date());
+      el.textContent = t + ' en Madrid, España';
+    } catch (e) { el.textContent = 'Madrid, España'; }
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>
