@@ -183,7 +183,7 @@ footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-num
     <p class="stack"><span>Microsoft</span> Intune, Entra ID, Microsoft 365, Power Platform, Copilot Studio, Azure · <span>Google</span> Workspace, Cloud, Gemini · <span>Licencias</span> FlexLM, Sentinel RMS, CodeMeter, NetKey, KMS · <span>Sistemas</span> XCP-ng, Windows Server, Debian · <span>Código</span> PowerShell, Python, DuckDB, Ansible</p>
   </section>
 
-  <footer id="clock">Madrid</footer>
+  <footer id="clock">en el multiverso</footer>
 </main>
 
 <script>
@@ -192,8 +192,8 @@ footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-num
   function tick() {
     try {
       var t = new Intl.DateTimeFormat('es-ES', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' }).format(new Date());
-      el.textContent = t + ' en Madrid, España';
-    } catch (e) { el.textContent = 'Madrid, España'; }
+      el.textContent = t + ' en el multiverso';
+    } catch (e) { el.textContent = 'en el multiverso'; }
   }
   tick();
   setInterval(tick, 30000);
