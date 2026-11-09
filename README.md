@@ -2,7 +2,7 @@
 
 Página personal de una sola página publicada con GitHub Pages.
 
-- Web: https://josevilar-qbioai.github.io
+- Web: https://joseavilar.org
 - Repositorio: https://github.com/josevilar-qbioai/josevilar-qbioai.github.io
 
 ## Estructura
