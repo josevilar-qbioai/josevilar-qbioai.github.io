@@ -7,26 +7,26 @@
 <meta name="description" content="Administrador de sistemas en la UPM e investigador en bioinformática e IA. Madrid.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
 <style>
 /* Layout: una sola columna estrecha, texto corrido y listas fecha a la derecha, como una página personal sobria */
 :root {
-  --bg: #fbfbfa;
-  --fg: #1c1d1f;
-  --muted: #6d7076;
-  --faint: #e6e7e8;
-  --accent: #1f6f6b;
-  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bg: #f1f6f5;
+  --fg: #102a2a;
+  --muted: #5b6e6d;
+  --faint: #d3e0de;
+  --accent: #0f6f72;
+  --font-body: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121314; --fg: #e8e8e6; --muted: #91949a; --faint: #26282a; --accent: #6cc3bc;
+    --bg: #0d1817; --fg: #e3eeec; --muted: #8fa6a3; --faint: #1f2f2e; --accent: #5cc4bf;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121314; --fg: #e8e8e6; --muted: #91949a; --faint: #26282a; --accent: #6cc3bc;
+  --bg: #0d1817; --fg: #e3eeec; --muted: #8fa6a3; --faint: #1f2f2e; --accent: #5cc4bf;
   color-scheme: dark;
 }
 
@@ -35,8 +35,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14.5px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 main {
@@ -49,9 +49,11 @@ main {
   flex-direction: column;
   gap: 2.75rem;
 }
-header { display: flex; flex-direction: column; gap: .15rem; }
-h1 { font-size: 15px; font-weight: 500; margin: 0; }
-.updated { color: var(--muted); font-size: 13px; margin: 0; }
+header { display: flex; align-items: center; gap: 14px; }
+.who { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; flex: none; background: var(--faint); object-fit: cover; }
+h1 { font-size: 18px; font-weight: 500; margin: 0; letter-spacing: -.01em; }
+.updated { color: var(--muted); font-family: var(--font-mono); font-size: 12.5px; margin: 0; }
 
 .intro { display: flex; flex-direction: column; gap: 1rem; }
 .intro p { margin: 0; }
@@ -98,7 +100,8 @@ ul.rows + ul.rows { border-top: 1px solid var(--faint); margin-top: .5rem; paddi
 .stack { color: var(--muted); font-size: 14px; margin: 0; }
 .stack span { color: var(--fg); }
 
-footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; display: flex; flex-direction: column; gap: .15rem; }
+.coords { font-family: var(--font-mono); font-size: 12px; }
 
 @media (prefers-reduced-motion: reduce) { a { transition: none; } }
 </style>
@@ -107,8 +110,11 @@ footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-num
 
 <main>
   <header>
-    <h1>Jose Antonio Vilar</h1>
-    <p class="updated">Actualizado el 9 nov 2026</p>
+    <img class="avatar" src="foto.webp" width="56" height="56" alt="Ilustración de Jose Antonio Vilar">
+    <div class="who">
+      <h1>Jose Antonio Vilar</h1>
+      <p class="updated">Actualizado el 9 nov 2026</p>
+    </div>
   </header>
 
   <div class="intro">
@@ -218,7 +224,10 @@ footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-num
     <p class="stack"><span>Microsoft</span> Intune, Entra ID, Microsoft 365, Power Platform, Copilot Studio, Azure · <span>Google</span> Workspace, Cloud, Gemini · <span>Licencias</span> FlexLM, Sentinel RMS, CodeMeter, NetKey, KMS · <span>Sistemas</span> XCP-ng, Windows Server, Debian · <span>Código</span> PowerShell, Python, DuckDB, Ansible</p>
   </section>
 
-  <footer id="clock">en el multiverso</footer>
+  <footer>
+    <span id="clock">en el multiverso</span>
+    <span class="coords" id="coords">Ψ-7 · (40.42, −3.70, t = 2026.86)</span>
+  </footer>
 </main>
 
 <script>
@@ -230,8 +239,14 @@ footer { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-num
       el.textContent = t + ' en el multiverso';
     } catch (e) { el.textContent = 'en el multiverso'; }
   }
-  tick();
-  setInterval(tick, 30000);
+  var co = document.getElementById('coords');
+  function coords() {
+    var n = new Date(), y = n.getFullYear();
+    var t = y + (n - new Date(y, 0, 1)) / (new Date(y + 1, 0, 1) - new Date(y, 0, 1));
+    co.textContent = 'Ψ-7 · (40.42, −3.70, t = ' + t.toFixed(2) + ')';
+  }
+  tick(); coords();
+  setInterval(function () { tick(); coords(); }, 30000);
 })();
 </script>
 </body>
